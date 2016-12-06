@@ -1,0 +1,15 @@
+parameters:
+    date.object_manager_id: doctrine.orm.entity_manager
+
+services:
+    ndp_datefields.form.type.year:
+        class: NDP\DateFieldsBundle\Form\Type\YearType
+        arguments: ["@service_container", "%date.object_manager_id%"]
+        tags:
+            - { name: form.type, alias: year }
+
+    ndp_datefields.form.type.yearmonth:
+        class: NDP\DateFieldsBundle\Form\Type\YearMonthType
+        arguments: ["@service_container", "%date.object_manager_id%"]
+        tags:
+            - { name: form.type, alias: yearmonth }

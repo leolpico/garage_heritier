@@ -1,0 +1,24 @@
+services:
+    core.admin.car:
+        class: LP\CoreBundle\Admin\CarAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Voiture" }
+        arguments: [~,LP\PlatformBundle\Entity\Car,~]
+        calls:
+            - [ setTranslationDomain, [CoreBundle]]
+
+    core.admin.advert:
+        class: LP\CoreBundle\Admin\AdvertAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Promotion" }
+        arguments: [~,LP\PlatformBundle\Entity\Advert,~]
+        calls:
+            - [ setTranslationDomain, [CoreBundle]]
+
+    core.admin.image:
+        class: LP\CoreBundle\Admin\ImageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Image" }
+        arguments: [~,LP\PlatformBundle\Entity\Image,~]
+        calls:
+            - [ setTranslationDomain, [CoreBundle]]

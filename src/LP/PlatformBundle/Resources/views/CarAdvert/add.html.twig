@@ -1,0 +1,13 @@
+{% extends "LPPlatformBundle::layout.html.twig" %}
+
+{% block title %}
+    Ajout d'une annonce - {{ parent() }}
+{% endblock %}
+
+{% block lpplatform_body %}
+
+    <h2>Ajouter une annonce de voiture</h2>
+
+    {{ include("LPPlatformBundle:CarAdvert:form.html.twig") }}
+
+{% endblock %}

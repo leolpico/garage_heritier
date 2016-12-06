@@ -1,0 +1,12 @@
+{% block yearmonth_widget %}
+    {% spaceless %}
+        <div {{ block('widget_container_attributes') }}>
+            {{ date_pattern|replace({
+                '{{ year }}':  form_widget(form.year, {'attr':{'class': 'year'} }),
+                '{{ month }}': form_widget(form.month,{'attr':{'class': 'month'} }),
+                '{{ day }}':  null
+            })|raw }}
+            <input type="hidden" name="{{ form.day.vars.full_name}}" value="{{ form.day.vars.value }}" />
+        </div>
+    {% endspaceless %}
+{% endblock yearmonth_widget %}

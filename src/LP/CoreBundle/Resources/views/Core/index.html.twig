@@ -1,0 +1,56 @@
+{# On utilise ici le layout général, qui se situe dans ce même CoreBundle maintenant #}
+{% extends "LPCoreBundle::layout.html.twig" %}
+
+{% block title %}
+    Page d'accueil - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <h2>Accueil</h2>
+
+    {# On affiche tous les messages flash dont le nom est « info » #}
+    {% for message in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">Message flash : {{ message }}</div>
+    {% endfor %}
+    {% for message in app.session.flashbag.get('info') %}
+        <div class="alert alert-info">Message flash : {{ message }}</div>
+    {% endfor %}
+
+    <h3>La promo du moment</h3>
+        {% if lastPromo is not null %}
+            <p>
+                <h4>{{ lastPromo.title }}</h4>
+                {% if lastPromo.image is not null %}
+                    <img
+                            src="{{ asset(lastPromo.image.webPath) }}"
+                            alt="{{ lastPromo.image.alt }}"
+                            height="60"
+                    />
+                {% endif %}
+            </p>
+            <p>{{ lastPromo.description }}</p>
+        {% endif %}
+
+
+
+    {# Pour afficher les dernières annonces, on réutilise le contrôleur menu du PlatformBundle #}
+    <h3>Les dernières voitures en vente</h3>
+        <div class="row">
+            {% for carAdvert in listCarAdverts %}
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img class="img_thumbnail" src="{{ asset(carAdvert.image.webPath) }}" alt="{{ carAdvert.image.alt }}">
+                        <div class="caption">
+                            <h4 class="text titre_annonce">{{ carAdvert.title }}</h4>
+                            <div class="text descr_annonce">{{ carAdvert.description }}</div>
+                            <p><a href="{{ path('lp_platform_view', {'id': carAdvert.id}) }}" class="btn btn-primary" role="button">Détails</a></p>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <li>Pas (encore !) d'annonces</li>
+            {% endfor %}
+        </div>
+
+{% endblock %}

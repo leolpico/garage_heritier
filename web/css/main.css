@@ -1,0 +1,29 @@
+.titre_annonce {
+    line-height: 25px;     /* fallback */
+    max-height: 50px;      /* fallback */
+    min-height: 50px;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    font-weight: bold;
+}
+
+.descr_annonce {
+    line-height: 16px;     /* fallback */
+    max-height: 48px;      /* fallback */
+    min-height: 48px;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    margin-bottom: 10px;
+}
+
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.img_thumbnail {
+    max-height: 150px;
+    max-width: 200px;
+    min-height: 150px;
+    min-width: 200px;
+}

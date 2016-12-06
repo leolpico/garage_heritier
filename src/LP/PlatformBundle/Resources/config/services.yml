@@ -1,0 +1,21 @@
+services:
+#    lp_platform.example:
+#        class: LP\PlatformBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    lp_platform.admin.car:
+        class: LP\PlatformBundle\Admin\CarAdmin
+        arguments: [~, LP\PlatformBundle\Entity\Car, LPPlatformBundle:CarAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Car }
+
+    lp_platform.admin.advert:
+        class: LP\PlatformBundle\Admin\AdvertAdmin
+        arguments: [~, LP\PlatformBundle\Entity\Advert, LPPlatformBundle:AdvertAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Advert }
+
+    lp_platform.admin.image:
+        class: LP\PlatformBundle\Admin\ImageAdmin
+        arguments: [~, LP\PlatformBundle\Entity\Image, LPPlatformBundle:ImageAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Image }

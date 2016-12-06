@@ -1,0 +1,59 @@
+{% extends "LPPlatformBundle::layout.html.twig" %}
+
+{% block title %}
+    Lecture d'une annonce - {{ parent() }}
+{% endblock %}
+
+{% block lpplatform_body %}
+
+    <h2>Visionner une annonce</h2>
+
+    <div style="float: left; margin-right: 1em;">
+        {# On vérifie qu'une image soit bien associée à l'article #}
+        {% if advert.image is not null %}
+            <img
+                    src="{{ asset(advert.image.webPath) }}"
+                    alt="{{ advert.image.alt }}"
+                    height="60"
+            />
+        {% endif %}
+    </div>
+
+    <h2>{{ advert.title}}</h2>
+    <i> le {{ advert.datePosted|date('d/m/Y') }}</i>
+
+    <div class="well">
+        <ul style="list-style-type:none">
+            <li>
+                Marque : {{ advert.brand }}
+            </li>
+            <li>
+                Modèle : {{ advert.model }}
+            </li>
+            <li>
+                Année : {{ advert.year|date('Y') }}
+            </li>
+            <li>
+                Description : {{ advert.description }}
+            </li>
+            <li>
+                prix : {{ advert.price }}
+            </li>
+            <li>
+                Kilométrage : {{ advert.km }}
+            </li>
+            <li>
+                Energie: {{ advert.energy }}
+            </li>
+        </ul>
+
+    </div>
+
+    <p>
+        <a href="{{ path('lp_platform_index') }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la liste
+        </a>
+    </p>
+
+{% endblock %}

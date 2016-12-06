@@ -1,0 +1,86 @@
+{% extends "LPCoreBundle::layout.html.twig" %}
+
+{% block title %}
+    Page d'accueil - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container col-xs-6 col-md-9 col-lg-12">
+
+        <div class=" well">
+            <text>
+                Contactez nous par tel au :
+            </text>
+        </div>
+
+        <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Ou par mail !</legend>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Prénom</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" >Nom de famille</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Phone #</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <input name="phone" placeholder="06 07 08 09 10" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text area -->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Votre message</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                            <textarea class="form-control" name="comment"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    </div><!-- /.container -->
+
+{% endblock body %}
