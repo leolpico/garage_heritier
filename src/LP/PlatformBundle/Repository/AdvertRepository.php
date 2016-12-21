@@ -38,7 +38,7 @@ class AdvertRepository extends \Doctrine\ORM\EntityRepository
             ->setMaxResults(1)
             ;
 
-        return $qb->getQuery()->getSingleResult();
+        return $qb->getQuery()->getOneOrNullResult();
     }
 
 }

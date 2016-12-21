@@ -26,7 +26,8 @@
         "sonata-project/admin-bundle": "^3.9",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "jms/di-extra-bundle": "dev-master",
-        "spatie/laravel-newsletter": "^3.1"
+        "spatie/laravel-newsletter": "^3.1",
+        "egeloen/ckeditor-bundle": "^4.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -47,11 +48,6 @@
         "post-update-cmd": [
             "@symfony-scripts"
         ]
-    },
-    "config": {
-        "platform": {
-            "php": "5.5.9"
-        }
     },
     "extra": {
         "symfony-app-dir": "app",

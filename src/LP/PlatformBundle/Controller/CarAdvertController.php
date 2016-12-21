@@ -10,6 +10,7 @@ namespace LP\PlatformBundle\Controller;
 use LP\PlatformBundle\Entity\Car;
 use LP\PlatformBundle\Form\CarType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -38,16 +39,16 @@ class CarAdvertController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $car = $em->getRepository('LPPlatformBundle:car')->find($id);
+        $carAdvert = $em->getRepository('LPPlatformBundle:Advert')->find($id);
 
-        if (null === $car) {
+        if (null === $carAdvert) {
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
 
-        return $this->render('LPPlatformBundle:car:view.html.twig',array(
+        return $this->render('LPPlatformBundle:CarAdvert:view.html.twig',array(
             'id' => $id,
-            'car' => $car,
+            'carAdvert' => $carAdvert,
             ));
     }
 
@@ -56,7 +57,7 @@ class CarAdvertController extends Controller
      */
     public function addAction(Request $request)
     {
-        $car = new car();
+        $car = new Car();
         $form = $this->get('form.factory')->create(carType::class, $car);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {

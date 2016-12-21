@@ -12,6 +12,9 @@
         {# On charge le CSS de bootstrap depuis le site directement #}
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+
+        <link rel="shortcut icon" href="/garage_heritier/web/uploads/logo/renault.ico" type="image/x-icon"/>
+        <link rel="icon" href="/garage_heritier/web/uploads/logo/renault.ico" type="image/x-icon"/>
     {% endblock %}
 </head>
 
@@ -36,8 +39,7 @@
     </div>
 
     {{ include("LPCoreBundle:Core:navbar.html.twig") }}
-
-    <div class="row">
+ {#   <div class="row">
         <div id="menu" class="col-md-3">
 
             <h3>Utilisateur</h3>
@@ -63,25 +65,23 @@
             <h3>Newsletter</h3>
 
                 {{ render(controller('LPCoreBundle:Default:Newsletter')) }}
-            {#<form class="well" action=" " method="post"  id="newsletter_form">#}
-                {#<div class="form-group">#}
-                    {#<label> Nom </label>#}
-                    {#<input type="text" class="form-control" placeholder="Martin">#}
-                {#</div>#}
-                {#<div class="form-group">#}
-                    {#<label> Prenom </label>#}
-                    {#<input type="text" class="form-control" placeholder="Dupont">#}
-                {#</div>#}
-                {#<div class="form-group">#}
-                    {#<label> Adresse email </label>#}
-                    {#<input type="email" class="form-control" placeholder="example@email.com">#}
-                {#</div>#}
-                {#<button type="submit" class="btn btn-default">S'inscrire</button>#}
-            {#</form>#}
-
-
-        </div>
-        <div id="content" class="col-md-9">
+            #}{#<form class="well" action=" " method="post"  id="newsletter_form">#}{#
+                #}{#<div class="form-group">#}{#
+                    #}{#<label> Nom </label>#}{#
+                    #}{#<input type="text" class="form-control" placeholder="Martin">#}{#
+                #}{#</div>#}{#
+                #}{#<div class="form-group">#}{#
+                    #}{#<label> Prenom </label>#}{#
+                    #}{#<input type="text" class="form-control" placeholder="Dupont">#}{#
+                #}{#</div>#}{#
+                #}{#<div class="form-group">#}{#
+                    #}{#<label> Adresse email </label>#}{#
+                    #}{#<input type="email" class="form-control" placeholder="example@email.com">#}{#
+                #}{#</div>#}{#
+                #}{#<button type="submit" class="btn btn-default">S'inscrire</button>#}{#
+            #}{#</form>#}{#
+        </div>#}
+        <div id="content" class="col-md-12">
             {% block body %}
             {% endblock %}
         </div>
@@ -89,8 +89,10 @@
 
     <hr>
 
-    <footer>
-        <p>Servir sans s’asservir ni se servir.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="text-muted">Servir sans s’asservir ni se servir.</div>
+        </div>
     </footer>
 </div>
 

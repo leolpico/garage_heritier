@@ -15,14 +15,18 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+
             //my bundles
             new LP\CoreBundle\LPCoreBundle(),
             new LP\PlatformBundle\LPPlatformBundle(),
             new LP\UserBundle\LPUserBundle(),
-            //other bundle
+
+            //others bundle
             new \NDP\DateFieldsBundle\NDPDateFieldsBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
 
             new FOS\UserBundle\FOSUserBundle(),
+
             //Sonata Bundles
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
@@ -31,6 +35,7 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\AopBundle\JMSAopBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

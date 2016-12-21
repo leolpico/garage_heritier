@@ -20,12 +20,14 @@ class DefaultController extends Controller
 
         $lastPromo = $em->getRepository('LPPlatformBundle:Advert')->findLastPromo();
 
-        $listCarAdverts = $em->getRepository('LPPlatformBundle:Advert')->findCarAdverts(2);
+        $listCarAdverts = $em->getRepository('LPPlatformBundle:Advert')->findCarAdverts(3);
 
         return $this->render('LPCoreBundle:Core:index.html.twig', array(
             'lastPromo' => $lastPromo,
             'listCarAdverts' => $listCarAdverts
         ));
+
+
     }
 
     /**

@@ -6,7 +6,10 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
+
 
 class AdvertAdmin extends AbstractAdmin
 {
@@ -50,11 +53,19 @@ class AdvertAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('title')
-            ->add('description')
+            ->add('description', CKEditorType::class)
             ->end()
 
-            ->with('Image')
+         /*   ->with('Image')
             ->add('image', 'sonata_type_model_list', array(
+                'label' => false,
+                'required' => false,
+                'btn_list' => false
+            ))
+            ->end() */
+
+            ->with('Image')
+            ->add('image', ModelListType::class, array(
                 'label' => false,
                 'required' => false,
                 'btn_list' => false
@@ -62,7 +73,7 @@ class AdvertAdmin extends AbstractAdmin
             ->end()
 
             ->with('Voiture')
-            ->add('car', 'sonata_type_model_list', array(
+            ->add('car', ModelListType::class, array(
                 'label' => false,
                 'btn_list' => false
             ), array(
@@ -92,7 +103,7 @@ class AdvertAdmin extends AbstractAdmin
             ->end()
 
             ->with('Voiture')
-            ->add('car', 'sonata_type_model_list', array(
+            ->add('car', ModelListType::class, array(
                 'label' => false,
                 'btn_list' => false
             ), array(
